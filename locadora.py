@@ -194,7 +194,15 @@ def alugar_veiculo():
 
     print(f"\nVeículo: {veiculo.modelo}")
     print(f"Quantidade de dias: {dias}")
-    print(f"Valor do aluguel: R$ {valor:.2f}")
+
+    if isinstance(veiculo, Moto):
+        valor_normal = veiculo.valor_diaria * dias
+
+        print(f"Valor normal: R$ {valor_normal:.2f}")
+        print("Desconto: 10%")
+        print(f"Valor com desconto: R$ {valor:.2f}")
+    else:
+        print(f"Valor do aluguel: R$ {valor:.2f}")
 
     veiculo.alugar()
 
